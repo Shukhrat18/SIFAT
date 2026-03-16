@@ -176,6 +176,70 @@ function toggleTheme() {
   body.light .btn-success { color: #fff; background: linear-gradient(135deg, #16a34a, #0f8c3e); }
   body.light .summary-card { background:#f7fbff; }
 
+  /* ===== MOBILE RESPONSIVE ===== */
+  @media (max-width: 600px) {
+    body { padding: 12px 10px; }
+
+    h1 { font-size: 1.1rem; letter-spacing: 1px; }
+    .subtitle { font-size: 0.78rem; margin-bottom: 18px; }
+
+    .topbar { margin-bottom: 6px; }
+    .theme-toggle { padding: 8px 12px; font-size: 0.85rem; }
+    .theme-toggle .theme-label { font-size: 0.72rem; }
+
+    .tabs { gap: 6px; margin-bottom: 12px; }
+    .tab-btn { padding: 8px 14px; font-size: 0.82rem; }
+
+    .card { padding: 14px 12px; margin-bottom: 12px; border-radius: 10px; }
+    .card-title { font-size: 0.65rem; letter-spacing: 2px; margin-bottom: 12px; }
+
+    .upload-zone { padding: 20px 14px; }
+    .upload-icon { font-size: 2rem; }
+    .upload-zone p { font-size: 0.82rem; }
+
+    .stats-row { grid-template-columns: 1fr 1fr 1fr; gap: 6px; }
+    .stat-box { padding: 8px 6px; }
+    .stat-box .val { font-size: 1rem; }
+    .stat-box .lbl { font-size: 0.62rem; }
+
+    .targets-grid { grid-template-columns: 1fr; gap: 10px; }
+
+    .dual-summary { grid-template-columns: 1fr; gap: 10px; }
+
+    .select-actions { flex-wrap: wrap; gap: 6px; }
+    .btn-small { padding: 5px 10px; font-size: 0.72rem; }
+
+    /* Table horizontal scroll */
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .group-table th, .group-table td { padding: 6px 8px; font-size: 0.75rem; white-space: nowrap; }
+
+    .variation-wrap { padding: 10px; }
+    .variation-wrap label { font-size: 0.68rem; }
+    .zero-wrap { padding: 10px; }
+    .zero-wrap label { font-size: 0.68rem; }
+
+    .btn { padding: 12px; font-size: 0.78rem; letter-spacing: 1px; }
+
+    .log { font-size: 0.72rem; padding: 10px; max-height: 110px; }
+
+    .subject-grid { grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 6px; }
+    .subject-chip { padding: 8px 10px; font-size: 0.8rem; }
+
+    .summary-card h3 { font-size: 0.72rem; }
+    .summary-card p { font-size: 0.75rem; }
+
+    .input-wrap input { padding: 9px 32px 9px 12px; font-size: 1rem; }
+    .input-wrap .pct { right: 10px; font-size: 0.9rem; }
+  }
+
+  @media (max-width: 380px) {
+    h1 { font-size: 0.95rem; }
+    .stats-row { grid-template-columns: 1fr; gap: 6px; }
+    .stat-box { display: flex; justify-content: space-between; align-items: center; padding: 8px 10px; }
+    .stat-box .val { font-size: 1.1rem; }
+    .stat-box .lbl { font-size: 0.65rem; margin-top: 0; }
+  }
+
 </style>
 </head>
 <body>
@@ -267,6 +331,7 @@ function toggleTheme() {
 
 <div class="card hidden" id="resultCard">
   <div class="card-title">4 · Натиҷа — ҳар гурӯҳ фарқ дорад</div>
+  <div class="table-wrap">
   <table class="group-table">
     <thead>
       <tr>
@@ -279,6 +344,7 @@ function toggleTheme() {
     </thead>
     <tbody id="groupTableBody"></tbody>
   </table>
+  </div>
   <div class="log" id="logBox"></div>
   <div class="dual-summary">
     <div class="summary-card">
@@ -308,6 +374,7 @@ function toggleTheme() {
 <div class="card hidden" id="studentDetailCard" style="margin-top:16px">
   <div class="card-title">5 · Донишҷӯён — як гурӯҳ</div>
   <div class="sheet-info" id="studentDetailInfo">Барои дидани ҷузъиёти донишҷӯён танҳо як гурӯҳро интихоб кунед.</div>
+  <div class="table-wrap">
   <table class="group-table" id="studentDetailTable" style="display:none; margin-top:10px">
     <thead>
       <tr>
@@ -322,6 +389,7 @@ function toggleTheme() {
     </thead>
     <tbody id="studentDetailBody"></tbody>
   </table>
+  </div>
 </div>
 </div>
 
@@ -368,6 +436,7 @@ function toggleTheme() {
       </div>
     </div>
     <div class="card-title" style="margin-top:16px">4 · Натиҷа аз рӯи ҳар як фан</div>
+    <div class="table-wrap">
     <table class="group-table" id="subjectResultTable" style="display:none; margin-top:10px">
       <thead>
         <tr>
@@ -380,6 +449,7 @@ function toggleTheme() {
       </thead>
       <tbody id="subjectResultBody"></tbody>
     </table>
+    </div>
     <div class="mini-note" id="subjectResultNote" style="display:none">Дар ин ҷадвал ҳар як фан алоҳида нишон дода мешавад. Баҳо иваз намешаванд — ҳисоб аз худи файли Excel гирифта мешавад.</div>
     <button class="btn btn-success" id="downloadSubjectsBtn" onclick="downloadSubjectFile()" disabled>⬇ ФАНҲОРО АЛОҲИДА ЭКСЕЛ КУН</button>
   </div>
